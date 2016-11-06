@@ -18,7 +18,8 @@ sudo apt-get update && \
 sudo apt-get update > /dev/null && \
   sudo apt-get install -y \
     apt-transport-https \
-    ca-certificates
+    ca-certificates \
+    git
 
 # Add the docker page GPG key
 sudo apt-key adv \
@@ -38,6 +39,9 @@ sudo apt-get update > /dev/null && \
 # Install the docker engine
 sudo apt-get install -y \
   docker-engine
+
+# Add the ubuntu user to the docker group, so we can use docker without sudo
+sudo usermod -a -G docker ubuntu
 
 # ------------
 # Google Cloud
@@ -60,3 +64,10 @@ sudo apt-get update > /dev/null && \
   sudo apt-get install -y \
     google-cloud-sdk \
     kubectl
+
+# ------------------------
+# Create the demonstration
+# ------------------------
+
+mkdir -p ${HOME}/Development
+git clone https://github.com/andrewhowdencom/kubernetes-demonstration.git ${HOME}/Development/demo
