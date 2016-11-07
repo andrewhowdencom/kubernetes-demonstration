@@ -41,7 +41,7 @@ sudo apt-get install -y \
   docker-engine
 
 # Add the ubuntu user to the docker group, so we can use docker without sudo
-sudo usermod -a -G docker ubuntu
+sudo usermod -a -G docker vagrant
 
 # ------------
 # Google Cloud
